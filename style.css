@@ -1,0 +1,69 @@
+/* Importing google font for use in project */
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+/* Makes all box sizing border box */
+* {
+  box-sizing: border-box;
+}
+
+/* This is for the main body, we are using the font Muli */
+body {
+  font-family: "Muli", sans-serif;
+  display: flex; /* As a row display flex */
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Makes use of entire 100 viewport height */
+  margin: 0; /* No margins */
+  overflow: hidden; /* No scroll wheel */
+}
+
+.container {
+  display: flex;
+  width: 90vw; /* 90 of viewport width */
+}
+
+/* Panel */
+.panel {
+  /* Background image css */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /*We want the cards to be about 80% of viewport height*/
+  height: 80vh;
+  border-radius: 30px; /*Rounded cards are nice*/
+  color: aliceblue;
+  margin: 20px; /*Space between the cards*/
+  cursor: pointer; /*We want the cursor type to change when hovering over the cards*/
+  flex: 0.5; /* Flex length factor */
+  transition: flex 0.7s ease-in; /*We also want to transition the flex type for 0.7seconds while easing in*/
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
